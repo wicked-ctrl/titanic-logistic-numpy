@@ -1,6 +1,15 @@
 # Titanic Survival Prediction with Pure NumPy Logistic Regression
 
-A self-contained, math-focused pipeline to predict Titanic survival using only NumPy. The notebook loads the dataset, handles missing ages by passenger class and sex, extracts honorific titles, computes family-size indicators, and bins age and fare into meaningful categories. Categorical features are one-hot encoded and numerical features are standardized manually. Core logistic regression components—sigmoid activation, log-loss cost, gradient computation, and gradient-descent optimization—are implemented from scratch, yielding about 83.6% training accuracy. Predictions for the test set are exported in `titanic_submission.csv`, and the learned sigmoid curve is visualized with shaded decision regions to illustrate the model’s classification boundary.
+A reproducible, end-to-end implementation of logistic regression built entirely with NumPy. This project demonstrates how to preprocess real-world data, engineer features, and optimize a classification model from first principles—without relying on high-level machine learning libraries.
 
-Run the notebook in JupyterLab (Python 3) to reproduce data preprocessing, model training, evaluation, submission generation, and visualization—all without high-level ML libraries.  
+## Methodology
 
+The pipeline begins by loading raw CSV files into pandas DataFrames and inspecting missing values and basic distributions. Missing ages are imputed based on passenger class and sex, while cabin entries are consolidated into deck identifiers. Honorific titles are extracted from names, and family relationships are encoded via family‐size and “is alone” indicators. Continuous variables (age, fare, family size) are standardized manually, and categorical attributes are one‐hot encoded. Core algorithmic components—sigmoid activation, log-loss cost, gradient computation, and gradient-descent optimization—are implemented from scratch in NumPy. Model convergence is monitored through cost‐versus‐iteration diagnostics, yielding approximately 83.6% training accuracy. Final predictions for the test set are thresholded at 0.5 and exported for submission. An overlay of the learned sigmoid function with shaded decision regions provides a visual confirmation of the classification boundary.
+
+## Provided Data
+
+- `train.csv` — Training features and survival labels  
+- `test.csv` — Passenger features for prediction  
+- `gender_submission.csv` — Example submission format  
+
+Clone this repository and execute the Jupyter notebook in a Python 3 environment to reproduce the entire workflow, from data preparation through to submission and visualization.  
